@@ -1,0 +1,14 @@
+name: app
+
+services:
+  head:
+    build: .
+    # restart: always
+
+  worker:
+    image: hello-world
+    # restart: always
+    deploy:
+      replicas: 3
+    depends_on:
+      - head
